@@ -28,7 +28,11 @@ class UserService {
     const userDto = new UserDto(user);
     const tokens = tokenService.generateTokens({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
-    return { ...tokens, user: userDto };
+    return {
+      ...tokens,
+      user: userDto,
+      activationLink: `${process.env.API_URL}/api/activate/${activationLink}`,
+    };
   }
 
   async activate(activationLink) {
