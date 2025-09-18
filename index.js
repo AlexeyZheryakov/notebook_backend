@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: true, // или просто "*" без массива
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    // allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
